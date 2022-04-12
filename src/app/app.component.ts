@@ -10,7 +10,7 @@ export class AppComponent {
   public members: string[] = [];
   public errorMessage: string = "";
   public numberOfTeams: number | "" = "";
-  private teams: string[][] = []
+  public teams: string[][] = []
 
   public addMember(): void {
     if (!this.newMemberName) {
@@ -38,7 +38,7 @@ export class AppComponent {
       this.errorMessage = "Invalid input of teams";
       return;
     }
-    
+
     if (this.members.length < this.numberOfTeams) {
       this.errorMessage = "Not enough members";
       return;
