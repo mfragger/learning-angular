@@ -27,28 +27,33 @@ export class AppComponent {
     this.newMemberName = member;
   }
 
-  public onNumberOfTeamsInput(numberOfTeams: string) {
-    var num: number = Number(numberOfTeams);
+  public onNumberOfTeamsInput(numberOfTeams: string): void {
+    var num = Number(numberOfTeams);
     this.numberOfTeams = num;
   }
-  public generateTeams(): void {
 
-    //wth, why is there so many guard clauses?
+  public generateTeams(): void {
+    //NOTE (mfragger) :: wth, why is there so many guard clauses?
     if (!this.numberOfTeams || this.numberOfTeams <= 0) {
       return;
     }
-    const allMembers = [...this.members];
+    const allMembers: string[] = [...this.members];
 
-    const max = this.numberOfTeams;
-
-    for (let i = 0; i < max; i++) {
-      const randNumber = Math.floor(Math.random() * max);
-      const member = allMembers.splice(randNumber, 1)[0];
-
-      if (this.teams[i]) {
-        this.teams[i].push(member);
-      } else {
-        this.teams[i] = [member];
+    while (allMembers.length > 0) {
+      // const max: number = allMembers.length;
+      for (let i = 0; i < this.numberOfTeams; i++) {
+        const randNumber: number = Math.floor(Math.random() * allMembers.length);
+        
+        //NOTE (mfragger) :: caching the length doesn't work since we're splicing the allMembers array.
+        const member: string = allMembers.splice(randNumber, 1)[0];
+        if (!member) {
+          break;
+        }
+        if (this.teams[i]) {
+          this.teams[i].push(member);
+        } else {
+          this.teams[i] = [member];
+        }
       }
     }
     console.log(this.teams);
