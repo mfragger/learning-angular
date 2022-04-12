@@ -35,15 +35,23 @@ export class AppComponent {
   public generateTeams(): void {
     //NOTE (mfragger) :: wth, why is there so many guard clauses?
     if (!this.numberOfTeams || this.numberOfTeams <= 0) {
+      this.errorMessage = "Invalid input of teams";
       return;
     }
+    
+    if (this.members.length < this.numberOfTeams) {
+      this.errorMessage = "Not enough members";
+      return;
+    }
+
+    this.errorMessage = "";
     const allMembers: string[] = [...this.members];
 
     while (allMembers.length > 0) {
       // const max: number = allMembers.length;
       for (let i = 0; i < this.numberOfTeams; i++) {
         const randNumber: number = Math.floor(Math.random() * allMembers.length);
-        
+
         //NOTE (mfragger) :: caching the length doesn't work since we're splicing the allMembers array.
         const member: string = allMembers.splice(randNumber, 1)[0];
         if (!member) {
@@ -56,6 +64,9 @@ export class AppComponent {
         }
       }
     }
-    console.log(this.teams);
+
+    this.members = [];
+    this.numberOfTeams = "";
+
   }
 }
