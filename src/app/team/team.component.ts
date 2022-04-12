@@ -9,7 +9,9 @@ export class TeamComponent implements OnInit {
 
   @Input() team: string[] = [];
   @Input() index: number = 0;
-  
+
+  public currentDate: Date = new Date();
+
   constructor() { }
 
   ngOnInit(): void {
