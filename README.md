@@ -3,15 +3,15 @@
 Learning Angular for future prospects.
 
 ## Learning Path
-[x] Setup
-[x] Where the main app goes
-[x] HTML
-[x] Styling
-[x] Code behind
-[x] Changing markup with code
-[x] Components :: pass parameters from component to component, render component
-[] Interact with external API
-[] Goto another page
+- [x] Setup
+- [x] Where the main app goes
+- [x] HTML
+- [x] Styling
+- [x] Code behind
+- [x] Changing markup with code
+- [x] Components :: pass parameters from component to component, render component
+- [] Interact with external API
+- [] Goto another page
 
 
 Tutorials followed:
