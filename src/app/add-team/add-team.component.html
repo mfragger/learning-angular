@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="ui card">
+        <h1>Team Generator</h1>
+        <ul class="list">
+            <li *ngFor="let member of members">{{ member }}</li>
+        </ul>
+        <div class="add-members-container">
+            <input #addMeemberInput type="text" placeholder="Name" (input)="onInput(addMeemberInput.value)"
+                [value]="newMemberName" />
+            <button (click)="addMember()">Add</button>
+        </div>
+        <div class="input-container">
+            <input #numberOfTeamsInput type="text" placeholder="# of teams"
+                (input)="onNumberOfTeamsInput(numberOfTeamsInput.value)" [value]="numberOfTeams" />
+            <button (click)="generateTeams()">Generate</button>
+        </div>
+        <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+    </div>
+    <!-- NOTE (mfragger) :: probably put this in a separate component -->
+    <div class="container" *ngIf="teams.length">
+        <!-- If component tag doesn't exist, then check the routing module if it's declared in the
+        declarations -->
+        <app-team *ngFor="let team of teams; let i = index" [team]="team" [index]="i"></app-team>
+    </div>
+</div>
