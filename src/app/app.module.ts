@@ -14,12 +14,15 @@ import { AppComponent } from './app.component';
 import { TeamComponent } from './team/team.component';
 import { SampleNewPageComponent } from './sample-new-page/sample-new-page.component';
 import { AddTeamComponent } from './add-team/add-team.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CatComponent } from './cat/cat.component';
 
 //app.component.html is the base and is always rendered.
 //Routes is an interface. Check w/ F12.
 const appRoute: Routes = [
   { path: '', component: AddTeamComponent },
-  { path: 'sample', component: SampleNewPageComponent }
+  { path: 'sample', component: SampleNewPageComponent },
+  { path: 'cat', component: CatComponent }
 ];
 
 //Add all the modules you want here.
@@ -29,9 +32,11 @@ const appRoute: Routes = [
     AddTeamComponent,
     AppComponent,
     TeamComponent,
-    SampleNewPageComponent
+    SampleNewPageComponent,
+    CatComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(appRoute)
   ],

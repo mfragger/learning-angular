@@ -10,8 +10,12 @@ Learning Angular for future prospects.
 - [x] Code behind
 - [x] Changing markup with code
 - [x] Components :: pass parameters from component to component, render component
+- [x] Goto another page (routing)
 - [ ] Interact with external API
-- [x] Goto another page
+    - [?] GET
+    - [ ] PUT
+    - [ ] POST
+    - [ ] DELETE
 
 
 Tutorials followed:
