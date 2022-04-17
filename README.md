@@ -12,11 +12,10 @@ Learning Angular for future prospects.
 - [x] Components :: pass parameters from component to component, render component
 - [x] Goto another page (routing)
 - [ ] Interact with external API
-    - [?] GET
+    - [x] GET
     - [ ] PUT
     - [ ] POST
     - [ ] DELETE
-
 
 Tutorials followed:
 * [The Modern Angular Crash Course - 2022](https://www.youtube.com/watch?v=WHv1YQUg6ow) by [Laith Harb](https://www.youtube.com/channel/UCyLNhHSiEVkVwPSFKxJAfSA)

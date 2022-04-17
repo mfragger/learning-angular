@@ -28,11 +28,8 @@ export class CatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe((data) => {
-      //why do I need to do this?????
-      const anyData: any = data;
-      // this.catFact.fact = (<Cat>data).fact;
-      this.catFact = (<Cat>(anyData.catResolver));
+    this.route.data.subscribe((data: any) => {
+      this.catFact = (<Cat>(data.catResolver));
     });
 
     // this.route.data.subscribe((data: {}) => {
