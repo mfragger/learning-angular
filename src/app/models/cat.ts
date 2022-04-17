@@ -1,3 +1,3 @@
 export interface Cat {
-    fact: string;
+    fact: string | undefined;
 }
