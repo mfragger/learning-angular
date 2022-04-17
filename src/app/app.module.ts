@@ -16,14 +16,20 @@ import { SampleNewPageComponent } from './sample-new-page/sample-new-page.compon
 import { AddTeamComponent } from './add-team/add-team.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CatComponent } from './cat/cat.component';
+import { CatServiceResolver } from './cat/CatServiceResolver';
 
 //app.component.html is the base and is always rendered.
 //Routes is an interface. Check w/ F12.
 const appRoute: Routes = [
   { path: '', component: AddTeamComponent },
   { path: 'sample', component: SampleNewPageComponent },
-  { path: 'cat', component: CatComponent }
-];
+  {
+    path: 'cat',
+    component: CatComponent,
+    resolve: {
+      catResolver: CatServiceResolver
+    }
+  }];
 
 //Add all the modules you want here.
 //So they're discoverd via html tag shenanigans.
@@ -40,7 +46,9 @@ const appRoute: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [],
+  providers: [
+    CatServiceResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
